@@ -21,9 +21,12 @@ function buildTable() {
     var table = $("#myTable")
     var tablehead = $("<thead>")
     var tableheadcontent = $("<th>")
+    var tablebody = $("<tbody>")
     var tablerow = $("<tr>")
-    var tablecontent = $("<td nowrap>")
+    var tablerow2 = $("<tr>")
+    var tablecontent = $("<td>")
     var itemstoappend = []
+    var descriptionstoappend = []
     $.each(tableContent.images, function () {
         $.each(this, function (name, value) {
             tableheadcontent.html("<img id=" + name + " style='height:100px;width:auto;border-radius:15px;' src=" + value + ">")
@@ -31,17 +34,41 @@ function buildTable() {
             itemstoappend.push(sendthis)
         })
     })
+    $.each(tableContent.descriptions, function () {
+        $.each(this, function (name, value) {
+            tablecontent.html("<div class='descriptionDiv'> <h2>" + name + "</h2> <p>" + value + "</p> <div>")
+            var sendthis = tablecontent.html()
+            descriptionstoappend.push(sendthis)
+        })
+    })
     for (var i = 0; i < itemstoappend.length; i++) {
         tablerow.append(itemstoappend[i])
     }
+    for (var i = 0; i < descriptionstoappend.length; i++) {
+        var appendthis = tablecontent.html(descriptionstoappend)
+        console.log(appendthis)
+        tablerow2.append(appendthis)
+    }
     tablerow.children($("<img>")).css({
-        margin: "0 5vw 0 0vw",
+        margin: "0 3vw 0 3vw",
         height: "20vh",
         boxSizing: "border-box",
         boxShadow: "0px 0px 9px rgba(199, 0, 0, 0.863), 0px 0px 18px rgba(255, 148, 148, 0.863), 0px 0px 30px rgba(41, 80, 255, 0.747),  0px 0px 35px rgba(105, 12, 114, 0.747)"
     })
+    tablerow2.css({
+        height: "auto",
+        width: "100%",
+
+    })
+    $("td").children($("h2")).css({
+        textShadow: "0px 0px 9px rgba(199, 0, 0, 0.863), 0px 0px 18px rgba(255, 148, 148, 0.863), 0px 0px 30px rgba(41, 80, 255, 0.747),  0px 0px 35px rgba(105, 12, 114, 0.747)",
+        width: "20vw !important"
+
+    })
     tablehead.append(tablerow)
     table.append(tablehead)
+    tablebody.append(tablerow2)
+    table.append(tablebody)
 
 }
 function loadContent() {
@@ -49,7 +76,8 @@ function loadContent() {
     var rowDiv = $("<div>", { class: "row" })
     var table = $("<table>", { id: "myTable" })
     table.css({
-        height: "90vh"
+        height: "90vh",
+
     })
     containerDiv.css({
         height: "100%",
@@ -57,7 +85,7 @@ function loadContent() {
     })
     rowDiv.css({
         height: "100%",
-        width: "90%",
+        width: "100%",
         backgroundColor: "transparent",
         textShadow: "0px 0px 9px rgba(199, 0, 0, 0.863), 0px 0px 18px rgba(255, 148, 148, 0.863), 0px 0px 30px rgba(41, 80, 255, 0.747),  0px 0px 35px rgba(105, 12, 114, 0.747)",
     })
