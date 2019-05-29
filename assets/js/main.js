@@ -13,9 +13,26 @@ var tableContent = {
         { 'A-Team Canvas Game': "This project was originally supposed to challenge us to use JavaScript in our creation of a Web Application - I took it a smal step further and decidd to research and learn how to use HTML Canvas in order to make the game more entertaining and, honestly, impressive." },
         { 'Trivia Game': "Creating this Application was a trial in dynamic webpage creation - I decided to challenge myself here and make the entire page load using only JavaScript and pre-defined objects containing HTML elements. I was proud of my use of HTML Canvas, jQuery and my JavaScript/CSS styling." },
         { 'Group Project': "The first team=effort I had been a part of - we decided to tackle the gathering of information of the current Congress of the United States as it is soon to be a hot topic with the coming 2020 Presidential Campaigns. This project made heavy use of APIs, dynamic loading, and involved a lot of peer teaching/learning when we had to work togetehr to integrate all of the components of the application." }
+    ],
+    links: [
+        'http://rcreveling.github.io/bob-dylan', 'http://rcreveling.github.io/student-bio-page', 'http://rcreveling.github.io/unit-4-game/index.html', 'http://rcreveling.github.io/trivia-game', 'http://rcreveling.github.io/project-one/index.html'
     ]
 }
 
+function activateLinks() {
+    $("#websiteOne").attr('href', tableContent.links[0])
+    $("#websiteTwo").attr('href', tableContent.links[1])
+    $("#websiteThree").attr('href', tableContent.links[2])
+    $("#websiteFour").attr('href', tableContent.links[3])
+    $("#websiteFive").attr('href', tableContent.links[4])
+    $("#websiteOne").attr('target', "_blank")
+    $("#websiteTwo").attr('target', "_blank")
+    $("#websiteThree").attr('target', "_blank")
+    $("#websiteFour").attr('target', "_blank")
+    $("#websiteFive").attr('target', "_blank")
+
+
+}
 
 function buildTable() {
     var table = $("#myTable")
@@ -29,7 +46,7 @@ function buildTable() {
     var descriptionstoappend = []
     $.each(tableContent.images, function () {
         $.each(this, function (name, value) {
-            tableheadcontent.html("<img id=" + name + " style='height:100px;width:auto;border-radius:15px;' src=" + value + ">")
+            tableheadcontent.html("<a style='width:0px;box-shadow:none !important;' id=" + name + "><img class='websiteImages' style = 'height:100px;width:auto;border-radius:15px;' src = " + value + " > <a>")
             var sendthis = tableheadcontent.html()
             itemstoappend.push(sendthis)
         })
@@ -44,6 +61,7 @@ function buildTable() {
     for (var i = 0; i < itemstoappend.length; i++) {
         tablerow.append(itemstoappend[i])
     }
+
     for (var i = 0; i < descriptionstoappend.length; i++) {
         var appendthis = tablecontent.html(descriptionstoappend)
         console.log(appendthis)
@@ -53,7 +71,6 @@ function buildTable() {
         margin: "0 3vw 0 3vw",
         height: "20vh",
         boxSizing: "border-box",
-        boxShadow: "0px 0px 9px rgba(199, 0, 0, 0.863), 0px 0px 18px rgba(255, 148, 148, 0.863), 0px 0px 30px rgba(41, 80, 255, 0.747),  0px 0px 35px rgba(105, 12, 114, 0.747)"
     })
     tablerow2.css({
         height: "auto",
@@ -70,6 +87,7 @@ function buildTable() {
     tablebody.append(tablerow2)
     table.append(tablebody)
 
+    activateLinks();
 }
 function loadContent() {
     var containerDiv = $("<div>", { class: "container" })
@@ -118,6 +136,6 @@ $("#main-head-icon").on("click", function () {
         width: "100vw",
         margin: "0 auto !important"
 
-    }, 1500, "linear")
+    }, 1000, "linear")
     loadContent();
 })
