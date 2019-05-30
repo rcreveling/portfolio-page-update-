@@ -8,11 +8,11 @@ var tableContent = {
         { 'websiteFive': 'assets/images/projectlogo.png' }
     ],
     descriptions: [
-        { 'Bob Dylan Fanpage': "This was my very first attempt at creating anything with code from scratch. Over the course of a month I learned the basics of HTML and CSS, how to troubleshoot and research specific issues I was experiencing, and create something that was visually appealing for my skill level" },
-        { 'Student Profile Page': "After a few weeks of coding class, I put this page together to test my new knowledge of CSS and HTML and made something slgihtly less structured and logical than my previous page." },
-        { 'A-Team Canvas Game': "This project was originally supposed to challenge us to use JavaScript in our creation of a Web Application - I took it a smal step further and decidd to research and learn how to use HTML Canvas in order to make the game more entertaining and, honestly, impressive." },
-        { 'Trivia Game': "Creating this Application was a trial in dynamic webpage creation - I decided to challenge myself here and make the entire page load using only JavaScript and pre-defined objects containing HTML elements. I was proud of my use of HTML Canvas, jQuery and my JavaScript/CSS styling." },
-        { 'Group Project': "The first team=effort I had been a part of - we decided to tackle the gathering of information of the current Congress of the United States as it is soon to be a hot topic with the coming 2020 Presidential Campaigns. This project made heavy use of APIs, dynamic loading, and involved a lot of peer teaching/learning when we had to work togetehr to integrate all of the components of the application." }
+        { 'HTML Work': "This was my very first attempt at creating anything with code from scratch. Over the course of a month I learned the basics of HTML and CSS, how to troubleshoot and research specific issues I was experiencing, and create something that was visually appealing for my skill level" },
+        { 'HTML/CSS': "After a few weeks of coding class, I put this page together to test my new knowledge of CSS and HTML and made something slightly less structured and logical than my previous page." },
+        { 'Canvas/ JavaScript': "This project was originally supposed to challenge us to use JavaScript in our creation of a Web Application - I took it a smal step further and decidd to research and learn how to use HTML Canvas in order to make the game more entertaining and, honestly, impressive." },
+        { 'jQuery/ Canvas': "Creating this Application was a trial in dynamic webpage creation - I decided to challenge myself here and make the entire page load using only JavaScript and pre-defined objects containing HTML elements. I was proud of my use of HTML Canvas, jQuery and my JavaScript/CSS styling." },
+        { 'APIs/ jQuery/ Group Dev.': "The first team effort I've been a part of - we decided to tackle the gathering of information of the current Congress of the United States as it is soon to be a hot topic with the coming 2020 Presidential Campaigns. This project made heavy use of APIs, dynamic loading, and involved a lot of peer teaching/learning when we had to work togetehr to integrate all of the components of the application." }
     ],
     links: [
         'http://rcreveling.github.io/bob-dylan', 'http://rcreveling.github.io/student-bio-page', 'http://rcreveling.github.io/unit-4-game/index.html', 'http://rcreveling.github.io/trivia-game', 'http://rcreveling.github.io/project-one/index.html'
@@ -68,7 +68,7 @@ function buildTable() {
         tablerow2.append(appendthis)
     }
     tablerow.children($("<img>")).css({
-        margin: "0 3vw 0 3vw",
+        margin: "0 2.5vw 0 3vw",
         height: "20vh",
         boxSizing: "border-box",
     })
@@ -77,6 +77,7 @@ function buildTable() {
         width: "100%",
 
     })
+
     $("td").children($("h2")).css({
         textShadow: "0px 0px 9px rgba(199, 0, 0, 0.863), 0px 0px 18px rgba(255, 148, 148, 0.863), 0px 0px 30px rgba(41, 80, 255, 0.747),  0px 0px 35px rgba(105, 12, 114, 0.747)",
         width: "20vw !important"
@@ -118,8 +119,9 @@ $("#main-head-icon").on("click", function () {
         transition: "3s fade"
     })
     $("#expanderDiv").css({
+        margin: "0 5vw 0 10vw",
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
     })
     var newDiv = $("<div>", { class: "container", id: "expandContainer" })
     newDiv.css({
@@ -136,6 +138,10 @@ $("#main-head-icon").on("click", function () {
         width: "100vw",
         margin: "0 auto !important"
 
-    }, 1000, "linear")
+    }, 1500, "linear")
     loadContent();
+})
+
+$("#title-icon").on("click", function () {
+    location.reload()
 })
